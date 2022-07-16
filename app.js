@@ -18,8 +18,28 @@ const numImpares = randomNumbers.filter((number) => number % 2 !== 0)
 */
 
 const crazyNumbers = [937, 5, 395, 402, 501, 333, 502, 781, 3, 691]
-const numbersunder501 = crazyNumbers.filter(item => item < 501)
-//console.log(numbersunder501)
+/*
+const numberSunder501 = crazyNumbers.filter(item => item < 501)
+console.log(numberSunder501)
+ ---eu que fiz
+*/
+
+/*
+const numbersLessThan501 = crazyNumbers.reduce((accumulator, crazyNumber) => {
+  if (crazyNumber < 501) {
+    return accumulator + 1
+  }
+  return accumulator
+}, 0)
+
+  console.log(numbersLessThan501)
+ ---- resolução do Roger
+ */ 
+const numbersLessThan501 = crazyNumbers.reduce((accumulator, crazyNumber) =>
+    crazyNumber < 501 ? accumulator + 1 : accumulator, 0)
+
+//console.log(numbersLessThan501)
+//com refratoração de código
 
 /*
   03
@@ -58,7 +78,10 @@ const tarantinoMovies = [
 const oldMovies = tarantinoMovies.filter(item => item.release < 2000)
 //console.log(oldMovies)
 
+//const oldMovies = tarantinoMovies.filter(({release}) => release < 2000)
+//console.log(oldMovies)
 
+//com refratoração de código
 
 /*
   05
@@ -78,7 +101,13 @@ const tvShows = [
 ]
 
 const seriesName = tvShows.map(item => item.name)
+//console.log(seriesName)
+
+/*
+const seriesName = tvShows.map(({ name }) => name)
 console.log(seriesName)
+//eliminando sintaxe de objeto e propriedade
+*/
 
 /*
   06
@@ -98,6 +127,19 @@ const cart = [
   { name: 'Resident Evil 2', price: 119.90 },
   { name: 'Death Stranding', price: 149.99 }
 ]
+
+const productList = cart.reduce((accumulator, product) => {
+  return `${accumulator}- ${product.name}\n`
+}, '')
+
+console.log(productList)
+
+/*
+const productList = cart
+  .reduce((accumulator, { name}) => `${accumulator}- ${name}\n`, '')
+  
+  //com refratoração de código
+  */
 
 /*
 - Nome 1
